@@ -14,7 +14,7 @@ public class PetService {
 
     public String salvar(PetDTO dto) {
         Pet pet = new Pet(dto.getNome(), dto.getIdade(), dto.getPorte(), dto.getTipo(), dto.getRaca());
-        return "Sagit
+        return "Sagitrica
 }
 
 
