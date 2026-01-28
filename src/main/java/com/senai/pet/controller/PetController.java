@@ -1,0 +1,30 @@
+package com.senai.pet.controller;
+
+import com.senai.pet.DTO.PetDTO;
+import com.senai.pet.service.PetService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/pet")
+public class PetController {
+
+    private PetService petService;
+
+    public PetController(PetService petService) {
+        this.petService = petService;
+    }
+
+    @PostMapping
+    public ResponseEntity<?> savePet (@RequestBody @Valid PetDTO dto) {
+        PetService.salvarPet(dto);
+        return ResponseEntity.ok("Pet Salvo");
+    }
+
+
+
+}

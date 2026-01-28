@@ -3,18 +3,22 @@ package com.senai.pet.service;
 import com.senai.pet.DTO.PetDTO;
 import com.senai.pet.entity.Pet;
 import com.senai.pet.repository.PetRepository;
+import org.springframework.stereotype.Service;
 
-public class PetService {
+@Service
+public class PetService<PetDTO> {
 
-    private PetRepository petRepository;
+    private static PetRepository petRepository;
 
     public PetService(PetRepository petRepository) {
         this.petRepository = petRepository;
     }
 
-    public String salvar(PetDTO dto) {
+    public static String salvarPet(com.senai.pet.DTO.PetDTO dto) {
         Pet pet = new Pet(dto.getNome(), dto.getIdade(), dto.getPorte(), dto.getTipo(), dto.getRaca());
-        return "Sagitrica
+        petRepository.save(pet);
+        return "Salvo com sucesso";
+    }
 }
 
 
