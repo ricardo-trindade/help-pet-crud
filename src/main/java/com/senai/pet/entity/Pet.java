@@ -24,5 +24,8 @@ public class Pet {
     private Porte porte;
     private Tipo tipo;
     private String raca;
+
+    public Pet(String nome, int idade, Porte porte, Tipo tipo, String raca) {
+    }
 }
 
